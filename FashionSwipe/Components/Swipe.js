@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import Footer from './Components/Footer';
-import Swipe from './Components/Swipe';
+import SwipeCards from 'react-native-swipe-cards';
 
 // Import images
-import Varsity1 from './assets/clothes/Varsity1.jpg';
-import Varsity2 from './assets/clothes/Varsity2.jpg';
-import Varsity3 from './assets/clothes/Varsity3.jpg';
-import Varsity4 from './assets/clothes/Varsity4.jpg';
+import Varsity1 from '../assets/clothes/Varsity1.jpg';
+import Varsity2 from '../assets/clothes/Varsity2.jpg';
+import Varsity3 from '../assets/clothes/Varsity3.jpg';
+import Varsity4 from '../assets/clothes/Varsity4.jpg';
 
 const users = [
   { id: 1, name: 'John', age: 25, imageUrl: Varsity1 },
@@ -16,9 +15,27 @@ const users = [
   { id: 4, name: 'Sophia', age: 24, imageUrl: Varsity4 }
 ];
 
-export default function App() {
+// Card component
+const Card = ({ user, handleLike, handleDislike }) => (
+  <View style={styles.card}>
+    <Image source={user.imageUrl} style={styles.image} />
+    <View style={styles.userInfo}>
+      <Text style={styles.name}>{user.name}, {user.age}</Text>
+    </View>
+    <View style={styles.actions}>
+      <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
+        <Text style={styles.actionText}>Dislike</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleLike} style={[styles.actionButton, styles.likeButton]}>
+        <Text style={styles.actionText}>Like</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
+
+// Swipe component
+const Swipe = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const handleLike = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
@@ -28,48 +45,32 @@ export default function App() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
   };
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const handleYup = () => {
+    handleLike();
   };
 
-  let pageContent;
-  switch (currentPage) {
-    case 1:
-      pageContent = <Text>Page 1 Content</Text>;
-      break;  
-    case 2:
-      pageContent = (
-        <View key={users[currentIndex].id} style={styles.card}>
-          <Image source={users[currentIndex].imageUrl} style={styles.image} />
-          <View style={styles.userInfo}>
-            <Text style={styles.name}>{users[currentIndex].name}, {users[currentIndex].age}</Text>
-          </View>
-          <View style={styles.actions}>
-            <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
-              <Text style={styles.actionText}>Dislike</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLike} style={[styles.actionButton, styles.likeButton]}>
-              <Text style={styles.actionText}>Like</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-      break;
-    case 3:
-      pageContent = <Text>Page 3 Content</Text>;
-      break;
-    default:
-      pageContent = null;
-  }
+  const handleNope = () => {
+    handleDislike();
+  };
+
+  const handlePageChange = (page) => {
+    // Add logic to change page here
+  };
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {pageContent}
-      <Footer onPageChange={handlePageChange} />
+      <SwipeCards
+        cards={users}
+        renderCard={(user) => <Card user={user} handleLike={handleLike} handleDislike={handleDislike} />}
+        renderNoMoreCards={() => <Text>No more cards</Text>}
+        loop={false}
+        handleYup={handleYup}
+        handleNope={handleNope}
+      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -122,3 +123,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default Swipe;
