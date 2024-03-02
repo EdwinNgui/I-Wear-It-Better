@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   content: {
-    flex: 1, // Take up remaining space
-    alignItems: 'center', // Center content horizontally
-    justifyContent: 'center', // Center content vertically
-    width: '100%', // Make content take up full width
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
   },
   card: {
     borderWidth: 1,
