@@ -5,13 +5,13 @@ const Footer = ({ onPageChange }) => {
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => onPageChange(1)} style={styles.button}>
-        <Text style={styles.buttonText}>Page 1</Text>
+        <Text style={styles.buttonText}>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(2)} style={styles.button}>
-        <Text style={styles.buttonText}>Page 2</Text>
+        <Text style={styles.buttonText}>Swipe</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(3)} style={styles.button}>
-        <Text style={styles.buttonText}>Page 3</Text>
+        <Text style={styles.buttonText}>Liked You</Text>
       </TouchableOpacity>
     </View>
   );

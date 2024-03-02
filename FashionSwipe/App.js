@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import Footer from './Components/Footer';
-import Swipe from './Components/Swipe';
+import Header from './Components/Header';
 
 // Import images
 import Varsity1 from './assets/clothes/Varsity1.jpg';
@@ -36,7 +36,7 @@ export default function App() {
   switch (currentPage) {
     case 1:
       pageContent = <Text>Page 1 Content</Text>;
-      break;  
+      break;
     case 2:
       pageContent = (
         <View key={users[currentIndex].id} style={styles.card}>
@@ -64,8 +64,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      {pageContent}
+      <Header onPageChange={handlePageChange} />
+      <View style={styles.content}>
+        <StatusBar style="auto" />
+        {pageContent}
+      </View>
       <Footer onPageChange={handlePageChange} />
     </View>
   );
@@ -77,6 +80,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  content: {
+    flex: 1, // Take up remaining space
+    alignItems: 'center', // Center content horizontally
+    justifyContent: 'center', // Center content vertically
+    width: '100%', // Make content take up full width
   },
   card: {
     borderWidth: 1,
