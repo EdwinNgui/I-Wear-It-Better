@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import Footer from './Components/Footer';
-import Header from './Components/Header';
+import Header from './Components/header';
+import Profile from './Components/Profile';
 
 // Import images
 import Varsity1 from './assets/clothes/Varsity1.jpg';
@@ -35,8 +36,10 @@ export default function App() {
   let pageContent;
   switch (currentPage) {
     case 1:
-      pageContent = <Text>Page 1 Content</Text>;
-      break;
+        pageContent = (
+          <Profile user={{ name: 'Alyssa', imageUrl: Varsity1, bio: 'Hey I\'m Alyssa from Ottawa! I\'m passionate about sustainability, thrifting, and discovering hidden gems for Social Media. Let\'s connect and explore together!', location: 'Ottawa, ON' }} />
+          );
+        break;
     case 2:
       pageContent = (
         <View key={users[currentIndex].id} style={styles.card}>
