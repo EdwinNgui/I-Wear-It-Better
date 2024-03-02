@@ -11,7 +11,7 @@ const Footer = ({ onPageChange }) => {
         <Text style={styles.buttonText}>Swipe</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(3)} style={styles.button}>
-        <Text style={styles.buttonText}>Liked You</Text>
+        <Text style={styles.buttonText}>Chat</Text>
       </TouchableOpacity>
     </View>
   );
