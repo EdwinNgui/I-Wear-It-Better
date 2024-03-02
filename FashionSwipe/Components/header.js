@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20, // Set text size
     color: '#333', // Set text color
-    alignItems: 'left',
+    //alignItems: 'left',
     marginLeft: 20,
   },
 });

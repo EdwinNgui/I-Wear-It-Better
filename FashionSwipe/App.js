@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import Footer from './Components/Footer';
-import Header from './Components/Header';
+import Header from './Components/header';
 
 // Import images
 import Varsity1 from './assets/clothes/Varsity1.jpg';
@@ -14,6 +14,14 @@ const users = [
   { id: 2, name: 'Emma', age: 23, imageUrl: Varsity2 },
   { id: 3, name: 'Michael', age: 27, imageUrl: Varsity3 },
   { id: 4, name: 'Sophia', age: 24, imageUrl: Varsity4 }
+];
+
+// Sample data for the inbox
+const conversations = [
+  { id: '1', name: 'Alice', lastMessage: 'Hey, how are you?', time: '5:00 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png' },
+  { id: '2', name: 'Bob', lastMessage: 'See you tomorrow!', time: '4:45 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg' },
+  { id: '3', name: 'Charlie', lastMessage: 'Thanks for the help!', time: '3:10 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg' },
+  // Add more conversations as needed
 ];
 
 export default function App() {
@@ -56,7 +64,24 @@ export default function App() {
       );
       break;
     case 3:
-      pageContent = <Text>Page 3 Content</Text>;
+      pageContent = (
+      <View style={styles.containerChat}>
+        <FlatList
+          data={conversations}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.conversation}>
+              <Image src={item.pfp} style={styles.pfp} />
+              <View style={styles.conversationInfo}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.lastMessage}>{item.lastMessage}</Text>
+              </View>
+              <Text style={styles.time}>{item.time}</Text>
+            </TouchableOpacity>
+          )}
+        />
+    </View>
+      );
       break;
     default:
       pageContent = null;
@@ -130,4 +155,38 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  //chat styles
+  pfp: {
+    width: '20%',
+    height: '20%',
+  },
+  containerChat: {
+    flex: 1,
+    backgroundColor: 'white', // iMessage uses a white background for the inbox
+  },
+  conversation: {
+    flexDirection: 'row',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: '#f2f2f2', // Light grey border for each conversation item
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  conversationInfo: {
+    flex: 0,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000', // Black color for the contact name
+  },
+  lastMessage: {
+    fontSize: 16,
+    color: '#6c6c6c', // Grey color for the last message preview
+  },
+  time: {
+    fontSize: 14,
+    color: '#9a9a9a', // Light grey for the message time
+  },
+  
 });
