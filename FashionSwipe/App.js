@@ -1,6 +1,5 @@
-  import React, { useState } from 'react';
-  import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
-
+import React, { useState } from 'react';
+import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 // Imports the sections
 import Footer from './Components/Footer';
 import Header from './Components/header';
@@ -62,12 +61,18 @@ export default function App() {
   const handleLike = () => {
     setLikeCounter(prevCounter => {
         const updatedCounter = prevCounter + 1;
+        // Check if likeCounter has reached a multiple of 3 (i.e., it's time to show the Match component)
         if (updatedCounter % 3 === 0) {
             setShowMatch(true);
-            // Automatically hide the Match component after 2 seconds
-            setTimeout(() => setShowMatch(false), 2000);
+            // Optionally, set a timeout to hide the Match component after 2 seconds and then move to the next user
+            setTimeout(() => {
+                setShowMatch(false);
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
+            }, 2000);
+        } else {
+            // If not showing the Match component, move to the next user immediately
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
         }
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
         return updatedCounter; // Update the counter state
     });
 };
