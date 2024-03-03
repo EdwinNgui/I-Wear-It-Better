@@ -86,7 +86,7 @@ export default function App() {
         <View key={users[currentIndex].id} style={styles.card}>
           <Image source={users[currentIndex].imageUrl} style={styles.image} />
           <View style={styles.userInfo}>
-            <Text style={styles.name}>{users[currentIndex].name}, {users[currentIndex].location}</Text>
+            <Text style={styles.name}>{users[currentIndex].name} | {users[currentIndex].location}</Text>
           </View>
           <View style={styles.actions}>
             <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
