@@ -10,13 +10,26 @@ import Varsity1 from './assets/clothes/Varsity1.jpg';
 import Varsity2 from './assets/clothes/Varsity2.jpg';
 import Varsity3 from './assets/clothes/Varsity3.jpg';
 import Varsity4 from './assets/clothes/Varsity4.jpg';
+import Cargo1 from "./assets/clothes/Cargo1.jpg";
+import Cargo2 from "./assets/clothes/Cargo2.jpg";
+import Hat5 from "./assets/clothes/Hat5.jpg";
+import Hat6 from "./assets/clothes/Hat6.jpg";
+import Jeans1 from "./assets/clothes/Jeans1.jpg";
+import Sweater1 from "./assets/clothes/Sweater1.jpg";
+
 import profilePic from './assets/Alyssa.jpg';
 
 const users = [
-  { id: 1, name: 'John', age: 25, imageUrl: Varsity1 },
-  { id: 2, name: 'Emma', age: 23, imageUrl: Varsity2 },
-  { id: 3, name: 'Michael', age: 27, imageUrl: Varsity3 },
-  { id: 4, name: 'Sophia', age: 24, imageUrl: Varsity4 }
+  { id: 1, name: 'John', location: 'Ottawa, ON', imageUrl: Varsity1 },
+  { id: 2, name: 'Emma', location: 'Ottawa, ON', imageUrl: Cargo1},
+  { id: 3, name: 'Michael', location: 'Ottawa, ON', imageUrl: Hat5},
+  { id: 4, name: 'Sophia', location: Nepean, ON, imageUrl: Varsity4}
+  { id: 5, name: 'Nicky', location: 'Ottawa, ON', imageUrl: Cargo2},
+  { id: 6, name: 'Emma', location: Nepean, ON, imageUrl: Varsity3},
+  { id: 7, name: 'Lisa', location: 'Ottawa, ON', imageUrl: Hat6},
+  { id: 8, name: 'Emily', location: Nepean, ON, imageUrl:  Jeans1},
+  { id: 9, name: 'Leth', location: 'Ottawa, ON', imageUrl: Varsity2},
+  { id: 10, name: 'Becky', location: Nepean, ON, imageUrl: Sweater1},
 ];
 
 // Sample data for the inbox
@@ -73,7 +86,7 @@ export default function App() {
         <View key={users[currentIndex].id} style={styles.card}>
           <Image source={users[currentIndex].imageUrl} style={styles.image} />
           <View style={styles.userInfo}>
-            <Text style={styles.name}>{users[currentIndex].name}, {users[currentIndex].age}</Text>
+            <Text style={styles.name}>{users[currentIndex].name}, {users[currentIndex].location}</Text>
           </View>
           <View style={styles.actions}>
             <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
