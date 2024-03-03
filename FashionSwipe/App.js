@@ -19,9 +19,20 @@ const users = [
 
 // Sample data for the inbox
 const conversations = [
-  { id: '1', name: 'Alice', lastMessage: 'Hey, how are you?', time: '5:00 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png' },
-  { id: '2', name: 'Bob', lastMessage: 'See you tomorrow!', time: '4:45 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg' },
+  { id: '1', name: 'Alice', lastMessage: 'Hey, how are you d...', time: '9:55 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png' },
+  { id: '2', name: 'Bob', lastMessage: 'See you tomorrow a', time: '5:45 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg' },
   { id: '3', name: 'Charlie', lastMessage: 'Thanks for the help!', time: '3:10 PM', pfp: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg' },
+  { id: '4', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '8:19 PM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
+  { id: '5', name: 'Lebron', lastMessage: 'Hey, let\'s chat ano...', time: '8:29 AM', pfp: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/c5r52rbifxn2srhp9no0' },
+  { id: '6', name: 'Albert', lastMessage: 'Lemme take a clo...', time: '5:44 PM', pfp: 'https://cdn.britannica.com/48/235948-050-9B6C79AE/R-kelly-2012.jpg' },
+  { id: '7', name: 'Alicia', lastMessage: 'I would look cute i...', time: '2:18 PM', pfp: 'https://imagez.tmz.com/image/99/4by3/2022/11/22/99ee0c6cda77452eaf8da38f12414c76_md.png' },
+  { id: '8', name: 'Taylor', lastMessage: 'Wow! We should tr...', time: '1:11 PM', pfp: 'https://media.architecturaldigest.com/photos/6544062de093ab4b75ca653a/16:9/w_2560%2Cc_limit/GettyImages-1730743172.jpg' },
+  { id: '9', name: 'Nick', lastMessage: 'Wowzers! Looks fr...', time: '5:32 AM', pfp: 'https://i.redd.it/sifrgaei90bb1.jpg' },
+  { id: '10', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '6:30 PM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
+  { id: '11', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '2:55 PM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
+  { id: '12', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '1:05 PM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
+  { id: '13', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '3:45 PM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
+  { id: '14', name: 'Bernard', lastMessage: 'Hey sick style dude!', time: '2:20 AM', pfp: 'https://static.wikia.nocookie.net/youtube/images/f/ff/Nick_Eh_30_face.png/revision/latest?cb=20190904212139' },
   // Add more conversations as needed
 ];
 
@@ -158,10 +169,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+
   //chat styles
   pfp: {
-    width: '20%',
-    height: '20%',
+    width: 30, // Adjust based on desired size
+    height: 30, // Should be equal to width for a perfect circle
+    borderRadius: 50, // This creates the round shape
+    padding: 25,
+    marginRight: 10,
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional: adds a subtle shadow
   },
   containerChat: {
     flex: 1,
@@ -190,6 +206,7 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 14,
     color: '#9a9a9a', // Light grey for the message time
+    marginLeft: 90,
   },
   
 });
