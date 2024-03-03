@@ -5,6 +5,7 @@
 import Footer from './Components/Footer';
 import Header from './Components/header';
 import Profile from './Components/Profile';
+import Match from './Components/Match';
 
 // Import images
 import Varsity1 from './assets/clothes/Varsity1.jpg';
@@ -55,17 +56,21 @@ export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
-  let likeCounter = 0;
+  const [likeCounter, setLikeCounter] = useState(0);
+  const [showMatch, setShowMatch] = useState(false);
 
   const handleLike = () => {
-    likeCounter++;
-    if (likeCounter % 4 == 0) {
-      console.debug("match!");
-    } else {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
-    }
-    
-  };
+    setLikeCounter(prevCounter => {
+        const updatedCounter = prevCounter + 1;
+        if (updatedCounter % 3 === 0) {
+            setShowMatch(true);
+            // Automatically hide the Match component after 2 seconds
+            setTimeout(() => setShowMatch(false), 2000);
+        }
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
+        return updatedCounter; // Update the counter state
+    });
+};
 
 
   const handleDislike = () => {
@@ -74,7 +79,9 @@ export default function App() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-  };
+    // Reset showMatch whenever changing pages
+    setShowMatch(false);
+};
 
   const handlePageChange2 = (page, name, imageUrl) => {
     setCurrentPage(page);
@@ -95,22 +102,22 @@ export default function App() {
     case 2:
       pageContent = (
         <View key={users[currentIndex].id} style={styles.card}>
-           {(likeCounter==3) ? <Text>This will show if the condition is true</Text> : null}
-          <Image source={users[currentIndex].imageUrl} style={styles.image} />
-          <View style={styles.userInfo}>
-            <Text style={styles.name}>{users[currentIndex].name} | {users[currentIndex].location}</Text>
-          </View>
-          <View style={styles.actions}>
-            <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
-              <Text style={styles.actionText}>Dislike</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLike} style={[styles.actionButton, styles.likeButton]}>
-              <Text style={styles.actionText}>Like</Text>
-            </TouchableOpacity>
-          </View>
+           {showMatch && <Match />}
+            <Image source={users[currentIndex].imageUrl} style={styles.image} />
+            <View style={styles.userInfo}>
+                <Text style={styles.name}>{users[currentIndex].name} | {users[currentIndex].location}</Text>
+            </View>
+            <View style={styles.actions}>
+                <TouchableOpacity onPress={handleDislike} style={[styles.actionButton, styles.dislikeButton]}>
+                    <Text style={styles.actionText}>Dislike</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleLike} style={[styles.actionButton, styles.likeButton]}>
+                    <Text style={styles.actionText}>Like</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-      );
-      break;
+    );
+    break;
       case 3:
         pageContent = (
           <View style={styles.containerChat}>
