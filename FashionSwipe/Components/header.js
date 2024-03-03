@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet } from 'react-native';
+import Logo from '../assets/logo.png';
 
 // Define the Header component
 const Header = ({ title }) => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>FashionSwipe</Text>
+      <Image source={Logo} style={styles.logo}/>
+      <Text style={styles.headerText}>{title}</Text>
     </View>
   );
 };
@@ -13,11 +15,11 @@ const Header = ({ title }) => {
 // Define styles for the header
 const styles = StyleSheet.create({
   headerContainer: {
+    flexDirection: 'row', // Align items in a row
+    alignItems: 'center', // Center items vertically
     width: '100%',
     height: 60, // Adjust the height as needed
     backgroundColor: '#fff', // Set your desired background color
-    justifyContent: 'center',
-    //alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#ddd', // Set border color
     elevation: 2, // Add elevation for shadow (Android)
@@ -25,12 +27,16 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowRadius: 2,
+    paddingLeft: 20, // Add padding to the left of the container
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    marginRight: 20, 
   },
   headerText: {
     fontSize: 20, // Set text size
     color: '#333', // Set text color
-    //alignItems: 'left',
-    marginLeft: 20,
   },
 });
 

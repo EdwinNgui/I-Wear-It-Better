@@ -5,13 +5,13 @@ const Footer = ({ onPageChange }) => {
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => onPageChange(1)} style={styles.button}>
-        <Text style={styles.buttonText}>Profile</Text>
+        <Text style={styles.buttonText}>🧑‍🦲</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(2)} style={styles.button}>
-        <Text style={styles.buttonText}>Swipe</Text>
+        <Text style={styles.buttonText}>🔥</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(3)} style={styles.button}>
-        <Text style={styles.buttonText}>Chat</Text>
+        <Text style={styles.buttonText}>💬</Text>
       </TouchableOpacity>
     </View>
   );
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#eee',
     paddingVertical: 10,
+    borderRadius: 20,
   },
   button: {
     paddingHorizontal: 20,
