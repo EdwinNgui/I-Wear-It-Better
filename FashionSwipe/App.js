@@ -54,9 +54,18 @@ export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
+  let likeCounter = 0;
+
   const handleLike = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
+    likeCounter++;
+    if (likeCounter % 4 == 0) {
+      console.debug("match!");
+    } else {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
+    }
+    
   };
+
 
   const handleDislike = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % users.length);
@@ -71,6 +80,7 @@ export default function App() {
     setPage4Name(name);
     setPage4ImageUrl(imageUrl);
   };
+
   const [page4Name, setPage4Name] = useState('');
   const [page4ImageUrl, setPage4ImageUrl] = useState('');
 
@@ -84,6 +94,7 @@ export default function App() {
     case 2:
       pageContent = (
         <View key={users[currentIndex].id} style={styles.card}>
+           {(likeCounter==3) ? <Text>This will show if the condition is true</Text> : null}
           <Image source={users[currentIndex].imageUrl} style={styles.image} />
           <View style={styles.userInfo}>
             <Text style={styles.name}>{users[currentIndex].name} | {users[currentIndex].location}</Text>
