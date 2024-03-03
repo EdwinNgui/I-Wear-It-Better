@@ -1,21 +1,17 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-
-import PersonIcon from "../assets/Icons/PersonIcon.svg";
-import SwipeIcon from "../assets/Icons/SwipeIcon.svg";
-import MessageBubbleIcon from "../assets/Icons/MessageBubble.svg";
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const Footer = ({ onPageChange }) => {
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => onPageChange(1)} style={styles.button}>
-        <PersonIcon width={24} height={24} />
+        <Text style={styles.buttonText}>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(2)} style={styles.button}>
-        <SwipeIcon width={24} height={24} />
+        <Text style={styles.buttonText}>Swipe</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(3)} style={styles.button}>
-        <MessageBubbleIcon width={24} height={24} />
+        <Text style={styles.buttonText}>Chat</Text>
       </TouchableOpacity>
     </View>
   );
@@ -36,7 +32,13 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 20,
     paddingVertical: 10,
+    backgroundColor: '#007bff',
     borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
