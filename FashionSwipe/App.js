@@ -23,7 +23,7 @@ const users = [
   { id: 1, name: 'John', location: 'Ottawa, ON', imageUrl: Varsity1 },
   { id: 2, name: 'Emma', location: 'Ottawa, ON', imageUrl: Cargo1},
   { id: 3, name: 'Michael', location: 'Ottawa, ON', imageUrl: Hat5},
-  { id: 4, name: 'Sophia', location: Nepean, ON, imageUrl: Varsity4}
+  { id: 4, name: 'Sophia', location: Nepean, ON, imageUrl: Varsity4},
   { id: 5, name: 'Nicky', location: 'Ottawa, ON', imageUrl: Cargo2},
   { id: 6, name: 'Emma', location: Nepean, ON, imageUrl: Varsity3},
   { id: 7, name: 'Lisa', location: 'Ottawa, ON', imageUrl: Hat6},
