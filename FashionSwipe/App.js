@@ -23,10 +23,10 @@ import profilePic from './assets/Alyssa.jpg';
 const users = [
   { id: 1, name: 'John', location: 'Ottawa, ON', imageUrl: Varsity1 },
   { id: 2, name: 'Emma', location: 'Ottawa, ON', imageUrl: Cargo1},
-  { id: 3, name: 'Michael', location: 'Ottawa, ON', imageUrl: Hat5},
+  { id: 3, name: 'Julian', location: 'Ottawa, ON', imageUrl: Hat5},
   { id: 4, name: 'Sophia', location: 'Nepean, ON', imageUrl: Varsity4},
   { id: 5, name: 'Nicky', location: 'Ottawa, ON', imageUrl: Cargo2},
-  { id: 6, name: 'Emma', location: 'Nepean, ON', imageUrl: Varsity3},
+  { id: 6, name: 'Edwin', location: 'Nepean, ON', imageUrl: Varsity3},
   { id: 7, name: 'Lisa', location: 'Ottawa, ON', imageUrl: Hat6},
   { id: 8, name: 'Emily', location: 'Nepean, ON', imageUrl:  Jeans1},
   { id: 9, name: 'Leth', location: 'Ottawa, ON', imageUrl: Varsity2},
