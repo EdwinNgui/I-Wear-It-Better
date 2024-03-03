@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: 15,
+    paddingBottom: 10,
+    marginBottom: 30,
   },
   header: {
     alignItems: 'center',
@@ -66,13 +69,14 @@ const styles = StyleSheet.create({
   },
   gradient: {
     backgroundColor: 'linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))',
-    width: '100%',
+    width: '90%',
+    height: '70%',
     paddingTop: 20,
-    paddingBottom: 40,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   details: {
     marginTop: 10,
-    marginBottom: 5,
     marginLeft: 20,
   },
   bio: {

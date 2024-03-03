@@ -12,14 +12,13 @@ const Header = ({ title }) => {
   );
 };
 
-// Define styles for the header
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row', // Align items in a row
     alignItems: 'center', // Center items vertically
     width: '100%',
     height: 60, // Adjust the height as needed
-    backgroundColor: '#fff', // Set your desired background color
+    backgroundColor: '#FFB4B7', // Set your desired background color
     borderBottomWidth: 1,
     borderBottomColor: '#ddd', // Set border color
     elevation: 2, // Add elevation for shadow (Android)
@@ -28,6 +27,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     paddingLeft: 20, // Add padding to the left of the container
+    borderBottomLeftRadius: 20, // Add border radius to top left corner
+    borderBottomRightRadius: 20, // Add border radius to top right corner
   },
   logo: {
     width: 50,
