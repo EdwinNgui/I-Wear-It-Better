@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+  import React, { useState } from 'react';
+  import { StatusBar, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+
 // Imports the sections
 import Footer from './Components/Footer';
 import Header from './Components/header';

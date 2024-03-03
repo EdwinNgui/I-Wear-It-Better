@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+
+import PersonIcon from "../assets/Icons/PersonIcon.png";
+import MessageBubble from "../assets/Icons/MessageBubble.png";
+import SwipeIcon from "../assets/Icons/SwipeIcon.png";
 
 const Footer = ({ onPageChange }) => {
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => onPageChange(1)} style={styles.button}>
-        <Text style={styles.buttonText}>🧑‍🦲</Text>
+        <Image source={PersonIcon} style={{ width: 24, height: 24 }} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(2)} style={styles.button}>
-        <Text style={styles.buttonText}>🔥</Text>
+        <Image source={SwipeIcon} style={{ width: 24, height: 24 }} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onPageChange(3)} style={styles.button}>
-        <Text style={styles.buttonText}>💬</Text>
+        <Image source={MessageBubble} style={{ width: 24, height: 24 }} />
       </TouchableOpacity>
     </View>
   );
@@ -33,13 +37,8 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: '#007bff',
+    backgroundColor: '#BFD7EA',
     borderRadius: 5,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
 
