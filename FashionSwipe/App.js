@@ -10,8 +10,7 @@ import Varsity1 from './assets/clothes/Varsity1.jpg';
 import Varsity2 from './assets/clothes/Varsity2.jpg';
 import Varsity3 from './assets/clothes/Varsity3.jpg';
 import Varsity4 from './assets/clothes/Varsity4.jpg';
-import profilePic from './assets/clothes/Varsity1.jpg';
-// ISSUE
+import profilePic from './assets/Alyssa.jpg';
 
 const users = [
   { id: 1, name: 'John', age: 25, imageUrl: Varsity1 },
@@ -66,7 +65,7 @@ export default function App() {
   switch (currentPage) {
     case 1:
       pageContent = (
-        <Profile user={{ name: 'Alyssa', imageUrl: Varsity1, bio: 'Hey I\'m Alyssa from Ottawa! I\'m passionate about sustainability, thrifting, and discovering hidden gems for Social Media. Let\'s connect and explore together!', location: 'Ottawa, ON' }} />
+        <Profile user={{ name: 'Alyssa', imageUrl: profilePic, bio: 'Hey I\'m Alyssa from Ottawa! I\'m passionate about sustainability, thrifting, and discovering hidden gems for Social Media. Let\'s connect and explore together!', location: 'Ottawa, ON' }} />
       );
       break;
     case 2:

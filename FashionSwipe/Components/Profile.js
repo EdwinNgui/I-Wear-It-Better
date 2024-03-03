@@ -9,34 +9,30 @@ import Shoe1 from '../assets/clothes/Shoe1.jpg';
 const Profile = ({ user }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={user.imageUrl} style={styles.image} />
-        <Text style={styles.name}>{user.name}</Text>
+      <View style={styles.gradient}>
+        <View style={styles.header}>
+          <Image source={user.imageUrl} style={styles.image} />
+        </View>
+        <View style={styles.nameLocationContainer}>
+            <Text style={styles.name}>{user.name}</Text>
+            <Text style={styles.location}>{user.location}</Text>
+        </View>
+        <View style={styles.details}>
+          <Text style={styles.bio}>{user.bio}</Text>
+        </View>
       </View>
-      <View style={styles.details}>
-        <Text style={styles.bio}>{user.bio}</Text>
-        <Text style={styles.location}>Location: {user.location}</Text>
-      </View>
+
       <View style={styles.carouselContainer}>
         <Text style={styles.listingHeader}>Active Listings </Text>
         <ScrollView horizontal>
           <View style={styles.listingBoxContainer}>
             <Image source={Sweater1} style={styles.listingBox} />
-            <View style={styles.priceTagContainer}>
-              <Text style={styles.priceTag}>$20</Text>
-            </View>
           </View>
           <View style={styles.listingBoxContainer}>
             <Image source={Cargo1} style={styles.listingBox} />
-            <View style={styles.priceTagContainer}>
-              <Text style={styles.priceTag}>$30</Text>
-            </View>
           </View>
           <View style={styles.listingBoxContainer}>
             <Image source={Shoe1} style={styles.listingBox} />
-            <View style={styles.priceTagContainer}>
-              <Text style={styles.priceTag}>$40</Text>
-            </View>
           </View>
           <TouchableOpacity style={styles.addButton}>
             <Text style={styles.addButtonText}>+</Text>
@@ -50,12 +46,11 @@ const Profile = ({ user }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    paddingTop: 40, // Adjusted paddingTop to push content down
   },
   header: {
     alignItems: 'center',
+    paddingTop: 10,
   },
   image: {
     width: 200,
@@ -66,28 +61,43 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     marginTop: 10,
+    color: '#fff',
+    marginLeft: 20,
+  },
+  gradient: {
+    backgroundColor: 'linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))',
+    width: '100%',
+    paddingTop: 20,
+    paddingBottom: 40,
   },
   details: {
-    alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 5,
+    marginLeft: 20,
   },
   bio: {
     fontSize: 18,
-    marginBottom: 10,
-    textAlign: 'center',
-    marginLeft: 30,
     marginRight: 30,
+    color: '#fff',
   },
   location: {
     fontSize: 16,
+    color: '#fff',
+    marginLeft: 10,
+    marginTop: 24,
   },
   listingHeader: {
-    marginLeft: 10,
+    marginLeft: 15,
+    marginTop: 20,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   carouselContainer: {
-    marginTop: 20,
-    marginLeft: 5,
+    marginTop: -10,
+    borderRadius: 35,
+    width: '106%',
+    backgroundColor: 'white',
+    paddingLeft: 15,
   },
   listingBoxContainer: {
     position: 'relative',
@@ -121,6 +131,11 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     fontSize: 32,
+  },
+  nameLocationContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
   },
 });
 
